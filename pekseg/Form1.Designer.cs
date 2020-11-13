@@ -51,6 +51,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.listBox4 = new System.Windows.Forms.ListBox();
+            this.btn_del = new System.Windows.Forms.Button();
+            this.btn_edit = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -137,6 +139,8 @@
             // 
             // gbox_pekaruk
             // 
+            this.gbox_pekaruk.Controls.Add(this.btn_edit);
+            this.gbox_pekaruk.Controls.Add(this.btn_del);
             this.gbox_pekaruk.Controls.Add(this.btn_hozzaad);
             this.gbox_pekaruk.Controls.Add(this.lbox_pekaruk);
             this.gbox_pekaruk.Controls.Add(this.chbox_laktoz);
@@ -281,11 +285,34 @@
             this.listBox4.Size = new System.Drawing.Size(197, 173);
             this.listBox4.TabIndex = 7;
             // 
+            // btn_del
+            // 
+            this.btn_del.Location = new System.Drawing.Point(90, 101);
+            this.btn_del.Name = "btn_del";
+            this.btn_del.Size = new System.Drawing.Size(52, 23);
+            this.btn_del.TabIndex = 5;
+            this.btn_del.Text = "Törlés";
+            this.btn_del.UseVisualStyleBackColor = true;
+            this.btn_del.Visible = false;
+            this.btn_del.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_edit
+            // 
+            this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_edit.Location = new System.Drawing.Point(90, 72);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(52, 23);
+            this.btn_edit.TabIndex = 6;
+            this.btn_edit.Text = "Módosít";
+            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Visible = false;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(632, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Pékség";
@@ -326,6 +353,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.Button btn_del;
+        private System.Windows.Forms.Button btn_edit;
     }
 }
 
