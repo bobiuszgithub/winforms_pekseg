@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace pekseg
@@ -53,5 +54,88 @@ namespace pekseg
             lbox_pekaruk.Items[lbox_pekaruk.SelectedIndex] = p2;
 
         }
-    }
+
+        private void btn_pekletrehoz_Click(object sender, EventArgs e)
+        {
+            List<Pekaru> pekaruk = new List<Pekaru>();
+            Pekseg pek = new Pekseg(tbox_peksegnev.Text, pekaruk, DateTime.Now);
+            lbox_peksegek.Items.Add(pek);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Pekseg pekseg = (Pekseg)lbox_peksegek.SelectedItem;
+            Pekaru pekaru = (Pekaru)lbox_pekaruk.SelectedItem;
+            pekseg.Termekek.Add(pekaru);
+            lbox_pekaruja.Items.Add(pekaru);
+        }
+
+        private void lbox_peksegek_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbox_pekaruja.Items.Clear();
+            Pekseg pekseg = (Pekseg)lbox_peksegek.SelectedItem;
+            for (int i = 0; i < pekseg.Termekek.Count; i++)
+            {
+                lbox_pekaruja.Items.Add(pekseg.Termekek[i]);
+            }
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbox_statpeksegek.Items.Clear();
+            for (int i = 0; i < lbox_peksegek.Items.Count; i++)
+            {
+                lbox_statpeksegek.Items.Add(lbox_peksegek.Items[i]);
+            }
+
+        }
+
+        private void lbox_statpeksegek_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Pekseg pek = (Pekseg)lbox_statpeksegek.SelectedItem;
+            stat_peknev.Text = pek.Nev;
+            stat_alapitva.Value = pek.Alapitva;
+            stat_db.Value = pek.Termekek.Count;
+            int osszar = 0;
+            for (int i = 0; i < pek.Termekek.Count; i++)
+            {
+                osszar += pek.Termekek[i].Ar;
+            }
+            stat_avgar.Value = osszar % pek.Termekek.Count;
+            Pekaru legolcsobb = pek.Termekek[0];
+            for (int i = 0; i < pek.Termekek.Count; i++)
+            {
+                if (legolcsobb.Ar < pek.Termekek[i].Ar)
+                {
+                    legolcsobb = pek.Termekek[i];
+                }
+            }
+            string olcsobb = string.Format("{0} ({1}Ft / db)", legolcsobb.Nev, legolcsobb.Ar);
+            stat_legolcsobb.Text = olcsobb;
+
+            Pekaru legdragabb = pek.Termekek[0];
+            for (int i = 0; i < pek.Termekek.Count; i++)
+            {
+                if (legdragabb.Ar > pek.Termekek[i].Ar)
+                    legdragabb = pek.Termekek[i];
+            }
+            string dragabb = string.Format("{0} ({1}Ft / db)", legdragabb.Nev, legdragabb.Ar);
+            stat_legdragabb.Text = dragabb;
+
+            int laktozmentes = 0;
+            for (int i = 0; i < pek.Termekek.Count; i++)
+            {
+                if (pek.Termekek[i].Laktozmentes == true)
+                {
+                    laktozmentes++;
+                }
+            }
+            stat_laktozmentes.Value = laktozmentes;
+           
+           
+            
+        }
+        }
 }
+

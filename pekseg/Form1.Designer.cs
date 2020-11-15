@@ -34,9 +34,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.lbox_pekaruja = new System.Windows.Forms.ListBox();
             this.lbox_peksegek = new System.Windows.Forms.ListBox();
-            this.btn_peknev = new System.Windows.Forms.Button();
+            this.btn_pekletrehoz = new System.Windows.Forms.Button();
             this.tbox_peksegnev = new System.Windows.Forms.TextBox();
             this.gbox_pekaruk = new System.Windows.Forms.GroupBox();
+            this.btn_edit = new System.Windows.Forms.Button();
+            this.btn_del = new System.Windows.Forms.Button();
             this.btn_hozzaad = new System.Windows.Forms.Button();
             this.lbox_pekaruk = new System.Windows.Forms.ListBox();
             this.chbox_laktoz = new System.Windows.Forms.CheckBox();
@@ -50,14 +52,25 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox4 = new System.Windows.Forms.ListBox();
-            this.btn_del = new System.Windows.Forms.Button();
-            this.btn_edit = new System.Windows.Forms.Button();
+            this.lbox_statpeksegek = new System.Windows.Forms.ListBox();
+            this.stat_alapitva = new System.Windows.Forms.DateTimePicker();
+            this.stat_db = new System.Windows.Forms.NumericUpDown();
+            this.stat_avgar = new System.Windows.Forms.NumericUpDown();
+            this.stat_peknev = new System.Windows.Forms.TextBox();
+            this.stat_legolcsobb = new System.Windows.Forms.TextBox();
+            this.stat_legdragabb = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.stat_laktozmentes = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbox_pekaruk.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stat_db)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stat_avgar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stat_laktozmentes)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -69,6 +82,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(629, 448);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -87,7 +101,7 @@
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.lbox_pekaruja);
             this.groupBox2.Controls.Add(this.lbox_peksegek);
-            this.groupBox2.Controls.Add(this.btn_peknev);
+            this.groupBox2.Controls.Add(this.btn_pekletrehoz);
             this.groupBox2.Controls.Add(this.tbox_peksegnev);
             this.groupBox2.Location = new System.Drawing.Point(6, 142);
             this.groupBox2.Name = "groupBox2";
@@ -104,6 +118,7 @@
             this.button3.TabIndex = 7;
             this.button3.Text = "+";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // lbox_pekaruja
             // 
@@ -120,15 +135,17 @@
             this.lbox_peksegek.Name = "lbox_peksegek";
             this.lbox_peksegek.Size = new System.Drawing.Size(252, 238);
             this.lbox_peksegek.TabIndex = 5;
+            this.lbox_peksegek.SelectedIndexChanged += new System.EventHandler(this.lbox_peksegek_SelectedIndexChanged);
             // 
-            // btn_peknev
+            // btn_pekletrehoz
             // 
-            this.btn_peknev.Location = new System.Drawing.Point(7, 45);
-            this.btn_peknev.Name = "btn_peknev";
-            this.btn_peknev.Size = new System.Drawing.Size(88, 23);
-            this.btn_peknev.TabIndex = 5;
-            this.btn_peknev.Text = "Hozzáadás";
-            this.btn_peknev.UseVisualStyleBackColor = true;
+            this.btn_pekletrehoz.Location = new System.Drawing.Point(7, 45);
+            this.btn_pekletrehoz.Name = "btn_pekletrehoz";
+            this.btn_pekletrehoz.Size = new System.Drawing.Size(88, 23);
+            this.btn_pekletrehoz.TabIndex = 5;
+            this.btn_pekletrehoz.Text = "Hozzáadás";
+            this.btn_pekletrehoz.UseVisualStyleBackColor = true;
+            this.btn_pekletrehoz.Click += new System.EventHandler(this.btn_pekletrehoz_Click);
             // 
             // tbox_peksegnev
             // 
@@ -152,6 +169,29 @@
             this.gbox_pekaruk.TabIndex = 0;
             this.gbox_pekaruk.TabStop = false;
             this.gbox_pekaruk.Text = "Pékáruk";
+            // 
+            // btn_edit
+            // 
+            this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_edit.Location = new System.Drawing.Point(90, 72);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(52, 23);
+            this.btn_edit.TabIndex = 6;
+            this.btn_edit.Text = "Módosít";
+            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Visible = false;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
+            // 
+            // btn_del
+            // 
+            this.btn_del.Location = new System.Drawing.Point(90, 101);
+            this.btn_del.Name = "btn_del";
+            this.btn_del.Size = new System.Drawing.Size(52, 23);
+            this.btn_del.TabIndex = 5;
+            this.btn_del.Text = "Törlés";
+            this.btn_del.UseVisualStyleBackColor = true;
+            this.btn_del.Visible = false;
+            this.btn_del.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_hozzaad
             // 
@@ -198,6 +238,16 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label10);
+            this.tabPage2.Controls.Add(this.stat_laktozmentes);
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.stat_legdragabb);
+            this.tabPage2.Controls.Add(this.stat_legolcsobb);
+            this.tabPage2.Controls.Add(this.stat_peknev);
+            this.tabPage2.Controls.Add(this.stat_avgar);
+            this.tabPage2.Controls.Add(this.stat_db);
+            this.tabPage2.Controls.Add(this.stat_alapitva);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label6);
@@ -205,7 +255,7 @@
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.listBox4);
+            this.tabPage2.Controls.Add(this.lbox_statpeksegek);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -217,7 +267,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(209, 111);
+            this.label7.Location = new System.Drawing.Point(203, 166);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(123, 13);
             this.label7.TabIndex = 15;
@@ -226,7 +276,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(209, 85);
+            this.label5.Location = new System.Drawing.Point(203, 111);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 13);
             this.label5.TabIndex = 13;
@@ -235,7 +285,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(209, 98);
+            this.label6.Location = new System.Drawing.Point(203, 135);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 13);
             this.label6.TabIndex = 12;
@@ -244,7 +294,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(209, 72);
+            this.label4.Location = new System.Drawing.Point(203, 85);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 11;
@@ -253,7 +303,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(209, 59);
+            this.label3.Location = new System.Drawing.Point(203, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 10;
@@ -262,7 +312,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(209, 19);
+            this.label2.Location = new System.Drawing.Point(203, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 9;
@@ -271,42 +321,103 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(209, 6);
+            this.label1.Location = new System.Drawing.Point(203, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 8;
             this.label1.Text = "péknév";
             // 
-            // listBox4
+            // lbox_statpeksegek
             // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.Location = new System.Drawing.Point(6, 6);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(197, 173);
-            this.listBox4.TabIndex = 7;
+            this.lbox_statpeksegek.FormattingEnabled = true;
+            this.lbox_statpeksegek.Location = new System.Drawing.Point(6, 6);
+            this.lbox_statpeksegek.Name = "lbox_statpeksegek";
+            this.lbox_statpeksegek.Size = new System.Drawing.Size(197, 173);
+            this.lbox_statpeksegek.TabIndex = 7;
+            this.lbox_statpeksegek.SelectedIndexChanged += new System.EventHandler(this.lbox_statpeksegek_SelectedIndexChanged);
             // 
-            // btn_del
+            // stat_alapitva
             // 
-            this.btn_del.Location = new System.Drawing.Point(90, 101);
-            this.btn_del.Name = "btn_del";
-            this.btn_del.Size = new System.Drawing.Size(52, 23);
-            this.btn_del.TabIndex = 5;
-            this.btn_del.Text = "Törlés";
-            this.btn_del.UseVisualStyleBackColor = true;
-            this.btn_del.Visible = false;
-            this.btn_del.Click += new System.EventHandler(this.button1_Click);
+            this.stat_alapitva.Enabled = false;
+            this.stat_alapitva.Location = new System.Drawing.Point(332, 31);
+            this.stat_alapitva.Name = "stat_alapitva";
+            this.stat_alapitva.Size = new System.Drawing.Size(200, 20);
+            this.stat_alapitva.TabIndex = 16;
             // 
-            // btn_edit
+            // stat_db
             // 
-            this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_edit.Location = new System.Drawing.Point(90, 72);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(52, 23);
-            this.btn_edit.TabIndex = 6;
-            this.btn_edit.Text = "Módosít";
-            this.btn_edit.UseVisualStyleBackColor = true;
-            this.btn_edit.Visible = false;
-            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
+            this.stat_db.Enabled = false;
+            this.stat_db.Location = new System.Drawing.Point(332, 57);
+            this.stat_db.Name = "stat_db";
+            this.stat_db.Size = new System.Drawing.Size(67, 20);
+            this.stat_db.TabIndex = 18;
+            // 
+            // stat_avgar
+            // 
+            this.stat_avgar.Enabled = false;
+            this.stat_avgar.Location = new System.Drawing.Point(332, 82);
+            this.stat_avgar.Name = "stat_avgar";
+            this.stat_avgar.Size = new System.Drawing.Size(67, 20);
+            this.stat_avgar.TabIndex = 19;
+            // 
+            // stat_peknev
+            // 
+            this.stat_peknev.Enabled = false;
+            this.stat_peknev.Location = new System.Drawing.Point(332, 6);
+            this.stat_peknev.Name = "stat_peknev";
+            this.stat_peknev.Size = new System.Drawing.Size(100, 20);
+            this.stat_peknev.TabIndex = 20;
+            // 
+            // stat_legolcsobb
+            // 
+            this.stat_legolcsobb.Enabled = false;
+            this.stat_legolcsobb.Location = new System.Drawing.Point(332, 108);
+            this.stat_legolcsobb.Name = "stat_legolcsobb";
+            this.stat_legolcsobb.Size = new System.Drawing.Size(100, 20);
+            this.stat_legolcsobb.TabIndex = 21;
+            // 
+            // stat_legdragabb
+            // 
+            this.stat_legdragabb.Enabled = false;
+            this.stat_legdragabb.Location = new System.Drawing.Point(332, 134);
+            this.stat_legdragabb.Name = "stat_legdragabb";
+            this.stat_legdragabb.Size = new System.Drawing.Size(100, 20);
+            this.stat_legdragabb.TabIndex = 22;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(405, 59);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 13);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "db";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(405, 85);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(16, 13);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Ft";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(405, 166);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(19, 13);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "db";
+            // 
+            // stat_laktozmentes
+            // 
+            this.stat_laktozmentes.Enabled = false;
+            this.stat_laktozmentes.Location = new System.Drawing.Point(332, 164);
+            this.stat_laktozmentes.Name = "stat_laktozmentes";
+            this.stat_laktozmentes.Size = new System.Drawing.Size(67, 20);
+            this.stat_laktozmentes.TabIndex = 26;
             // 
             // Form1
             // 
@@ -324,6 +435,9 @@
             this.gbox_pekaruk.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stat_db)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stat_avgar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stat_laktozmentes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -343,7 +457,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListBox lbox_pekaruja;
         private System.Windows.Forms.ListBox lbox_peksegek;
-        private System.Windows.Forms.Button btn_peknev;
+        private System.Windows.Forms.Button btn_pekletrehoz;
         private System.Windows.Forms.TextBox tbox_peksegnev;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
@@ -352,9 +466,19 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.ListBox lbox_statpeksegek;
         private System.Windows.Forms.Button btn_del;
         private System.Windows.Forms.Button btn_edit;
+        private System.Windows.Forms.DateTimePicker stat_alapitva;
+        private System.Windows.Forms.NumericUpDown stat_avgar;
+        private System.Windows.Forms.NumericUpDown stat_db;
+        private System.Windows.Forms.TextBox stat_legdragabb;
+        private System.Windows.Forms.TextBox stat_legolcsobb;
+        private System.Windows.Forms.TextBox stat_peknev;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown stat_laktozmentes;
     }
 }
 

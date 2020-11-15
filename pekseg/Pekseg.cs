@@ -26,7 +26,7 @@ namespace pekseg
 
         public override string ToString()
         {
-            return String.Format("{0} - {1}", nev, alapitva);
+            return String.Format("{0} - {1}.{2}.{3}", nev, alapitva.Year, alapitva.Month, alapitva.Day);
         }
 
     }
