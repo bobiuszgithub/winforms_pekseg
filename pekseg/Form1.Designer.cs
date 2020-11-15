@@ -55,7 +55,6 @@
             this.lbox_statpeksegek = new System.Windows.Forms.ListBox();
             this.stat_alapitva = new System.Windows.Forms.DateTimePicker();
             this.stat_db = new System.Windows.Forms.NumericUpDown();
-            this.stat_avgar = new System.Windows.Forms.NumericUpDown();
             this.stat_peknev = new System.Windows.Forms.TextBox();
             this.stat_legolcsobb = new System.Windows.Forms.TextBox();
             this.stat_legdragabb = new System.Windows.Forms.TextBox();
@@ -63,13 +62,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.stat_laktozmentes = new System.Windows.Forms.NumericUpDown();
+            this.stat_atlagar = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbox_pekaruk.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stat_db)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stat_avgar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stat_laktozmentes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -238,6 +237,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.stat_atlagar);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.stat_laktozmentes);
             this.tabPage2.Controls.Add(this.label9);
@@ -245,7 +245,6 @@
             this.tabPage2.Controls.Add(this.stat_legdragabb);
             this.tabPage2.Controls.Add(this.stat_legolcsobb);
             this.tabPage2.Controls.Add(this.stat_peknev);
-            this.tabPage2.Controls.Add(this.stat_avgar);
             this.tabPage2.Controls.Add(this.stat_db);
             this.tabPage2.Controls.Add(this.stat_alapitva);
             this.tabPage2.Controls.Add(this.label7);
@@ -352,14 +351,6 @@
             this.stat_db.Size = new System.Drawing.Size(67, 20);
             this.stat_db.TabIndex = 18;
             // 
-            // stat_avgar
-            // 
-            this.stat_avgar.Enabled = false;
-            this.stat_avgar.Location = new System.Drawing.Point(332, 82);
-            this.stat_avgar.Name = "stat_avgar";
-            this.stat_avgar.Size = new System.Drawing.Size(67, 20);
-            this.stat_avgar.TabIndex = 19;
-            // 
             // stat_peknev
             // 
             this.stat_peknev.Enabled = false;
@@ -419,6 +410,14 @@
             this.stat_laktozmentes.Size = new System.Drawing.Size(67, 20);
             this.stat_laktozmentes.TabIndex = 26;
             // 
+            // stat_atlagar
+            // 
+            this.stat_atlagar.Enabled = false;
+            this.stat_atlagar.Location = new System.Drawing.Point(332, 82);
+            this.stat_atlagar.Name = "stat_atlagar";
+            this.stat_atlagar.Size = new System.Drawing.Size(67, 20);
+            this.stat_atlagar.TabIndex = 28;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,7 +435,6 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stat_db)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stat_avgar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stat_laktozmentes)).EndInit();
             this.ResumeLayout(false);
 
@@ -470,7 +468,6 @@
         private System.Windows.Forms.Button btn_del;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.DateTimePicker stat_alapitva;
-        private System.Windows.Forms.NumericUpDown stat_avgar;
         private System.Windows.Forms.NumericUpDown stat_db;
         private System.Windows.Forms.TextBox stat_legdragabb;
         private System.Windows.Forms.TextBox stat_legolcsobb;
@@ -479,6 +476,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown stat_laktozmentes;
+        private System.Windows.Forms.TextBox stat_atlagar;
     }
 }
 

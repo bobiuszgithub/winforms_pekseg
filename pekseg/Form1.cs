@@ -94,44 +94,59 @@ namespace pekseg
         private void lbox_statpeksegek_SelectedIndexChanged(object sender, EventArgs e)
         {
             Pekseg pek = (Pekseg)lbox_statpeksegek.SelectedItem;
+
             stat_peknev.Text = pek.Nev;
             stat_alapitva.Value = pek.Alapitva;
-            stat_db.Value = pek.Termekek.Count;
-            int osszar = 0;
-            for (int i = 0; i < pek.Termekek.Count; i++)
+            if (pek.Termekek.Count > 0)
             {
-                osszar += pek.Termekek[i].Ar;
-            }
-            stat_avgar.Value = osszar % pek.Termekek.Count;
-            Pekaru legolcsobb = pek.Termekek[0];
-            for (int i = 0; i < pek.Termekek.Count; i++)
-            {
-                if (legolcsobb.Ar < pek.Termekek[i].Ar)
+                stat_db.Value = pek.Termekek.Count;
+                double osszar = 0;
+                for (int i = 0; i < pek.Termekek.Count; i++)
                 {
-                    legolcsobb = pek.Termekek[i];
+                    osszar += pek.Termekek[i].Ar;
                 }
-            }
-            string olcsobb = string.Format("{0} ({1}Ft / db)", legolcsobb.Nev, legolcsobb.Ar);
-            stat_legolcsobb.Text = olcsobb;
-
-            Pekaru legdragabb = pek.Termekek[0];
-            for (int i = 0; i < pek.Termekek.Count; i++)
-            {
-                if (legdragabb.Ar > pek.Termekek[i].Ar)
-                    legdragabb = pek.Termekek[i];
-            }
-            string dragabb = string.Format("{0} ({1}Ft / db)", legdragabb.Nev, legdragabb.Ar);
-            stat_legdragabb.Text = dragabb;
-
-            int laktozmentes = 0;
-            for (int i = 0; i < pek.Termekek.Count; i++)
-            {
-                if (pek.Termekek[i].Laktozmentes == true)
+                double atlag = Math.Round((osszar / pek.Termekek.Count), 2);
+                stat_atlagar.Text = Convert.ToString(atlag);
+                Pekaru legolcsobb = pek.Termekek[0];
+                for (int i = 0; i < pek.Termekek.Count; i++)
                 {
-                    laktozmentes++;
+                    if (legolcsobb.Ar < pek.Termekek[i].Ar)
+                    {
+                        legolcsobb = pek.Termekek[i];
+                    }
                 }
+                string olcsobb = string.Format("{0} ({1}Ft / db)", legolcsobb.Nev, legolcsobb.Ar);
+                stat_legolcsobb.Text = olcsobb;
+
+                Pekaru legdragabb = pek.Termekek[0];
+                for (int i = 0; i < pek.Termekek.Count; i++)
+                {
+                    if (legdragabb.Ar > pek.Termekek[i].Ar)
+                        legdragabb = pek.Termekek[i];
+                }
+                string dragabb = string.Format("{0} ({1}Ft / db)", legdragabb.Nev, legdragabb.Ar);
+                stat_legdragabb.Text = dragabb;
+
+                int laktozmentes = 0;
+                for (int i = 0; i < pek.Termekek.Count; i++)
+                {
+                    if (pek.Termekek[i].Laktozmentes == true)
+                    {
+                        laktozmentes++;
+                    }
+                }
+                stat_laktozmentes.Value = laktozmentes;
             }
-            stat_laktozmentes.Value = laktozmentes;
+            else
+            {
+                stat_db.Value = 0;
+                stat_atlagar.Text = " ";
+                stat_legolcsobb.Text = " ";
+                stat_legdragabb.Text = " ";
+                stat_laktozmentes.Value = 0;
+                
+            }
+          
            
            
             
