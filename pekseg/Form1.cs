@@ -66,6 +66,8 @@ namespace pekseg
             Pekaru p2 = new Pekaru(tbox_pekarunev.Text, Convert.ToInt32(tbox_ar.Text), chbox_laktoz.Checked);
 
             lbox_pekaruk.Items[lbox_pekaruk.SelectedIndex] = p2;
+            btn_del.Visible = false;
+            btn_edit.Visible = false;
 
         }
 
