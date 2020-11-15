@@ -56,7 +56,8 @@ namespace pekseg
             tbox_ar.Text = "";
             chbox_laktoz.Checked = false;
             btn_del.Visible = false;
-            
+            btn_edit.Visible = false;
+
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
