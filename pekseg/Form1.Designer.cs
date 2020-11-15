@@ -60,16 +60,14 @@
             this.stat_legdragabb = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.stat_laktozmentes = new System.Windows.Forms.NumericUpDown();
             this.stat_atlagar = new System.Windows.Forms.TextBox();
+            this.stat_laktozmentes = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbox_pekaruk.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stat_db)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stat_laktozmentes)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -237,9 +235,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.stat_atlagar);
-            this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.stat_laktozmentes);
+            this.tabPage2.Controls.Add(this.stat_atlagar);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.stat_legdragabb);
@@ -340,7 +337,7 @@
             this.stat_alapitva.Enabled = false;
             this.stat_alapitva.Location = new System.Drawing.Point(332, 31);
             this.stat_alapitva.Name = "stat_alapitva";
-            this.stat_alapitva.Size = new System.Drawing.Size(200, 20);
+            this.stat_alapitva.Size = new System.Drawing.Size(183, 20);
             this.stat_alapitva.TabIndex = 16;
             // 
             // stat_db
@@ -356,7 +353,7 @@
             this.stat_peknev.Enabled = false;
             this.stat_peknev.Location = new System.Drawing.Point(332, 6);
             this.stat_peknev.Name = "stat_peknev";
-            this.stat_peknev.Size = new System.Drawing.Size(100, 20);
+            this.stat_peknev.Size = new System.Drawing.Size(183, 20);
             this.stat_peknev.TabIndex = 20;
             // 
             // stat_legolcsobb
@@ -364,7 +361,7 @@
             this.stat_legolcsobb.Enabled = false;
             this.stat_legolcsobb.Location = new System.Drawing.Point(332, 108);
             this.stat_legolcsobb.Name = "stat_legolcsobb";
-            this.stat_legolcsobb.Size = new System.Drawing.Size(100, 20);
+            this.stat_legolcsobb.Size = new System.Drawing.Size(183, 20);
             this.stat_legolcsobb.TabIndex = 21;
             // 
             // stat_legdragabb
@@ -372,7 +369,7 @@
             this.stat_legdragabb.Enabled = false;
             this.stat_legdragabb.Location = new System.Drawing.Point(332, 134);
             this.stat_legdragabb.Name = "stat_legdragabb";
-            this.stat_legdragabb.Size = new System.Drawing.Size(100, 20);
+            this.stat_legdragabb.Size = new System.Drawing.Size(183, 20);
             this.stat_legdragabb.TabIndex = 22;
             // 
             // label8
@@ -393,23 +390,6 @@
             this.label9.TabIndex = 25;
             this.label9.Text = "Ft";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(405, 166);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(19, 13);
-            this.label10.TabIndex = 27;
-            this.label10.Text = "db";
-            // 
-            // stat_laktozmentes
-            // 
-            this.stat_laktozmentes.Enabled = false;
-            this.stat_laktozmentes.Location = new System.Drawing.Point(332, 164);
-            this.stat_laktozmentes.Name = "stat_laktozmentes";
-            this.stat_laktozmentes.Size = new System.Drawing.Size(67, 20);
-            this.stat_laktozmentes.TabIndex = 26;
-            // 
             // stat_atlagar
             // 
             this.stat_atlagar.Enabled = false;
@@ -417,6 +397,14 @@
             this.stat_atlagar.Name = "stat_atlagar";
             this.stat_atlagar.Size = new System.Drawing.Size(67, 20);
             this.stat_atlagar.TabIndex = 28;
+            // 
+            // stat_laktozmentes
+            // 
+            this.stat_laktozmentes.Enabled = false;
+            this.stat_laktozmentes.Location = new System.Drawing.Point(332, 166);
+            this.stat_laktozmentes.Name = "stat_laktozmentes";
+            this.stat_laktozmentes.Size = new System.Drawing.Size(183, 20);
+            this.stat_laktozmentes.TabIndex = 29;
             // 
             // Form1
             // 
@@ -435,7 +423,6 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stat_db)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stat_laktozmentes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -474,9 +461,8 @@
         private System.Windows.Forms.TextBox stat_peknev;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown stat_laktozmentes;
         private System.Windows.Forms.TextBox stat_atlagar;
+        private System.Windows.Forms.TextBox stat_laktozmentes;
     }
 }
 

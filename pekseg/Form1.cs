@@ -39,11 +39,24 @@ namespace pekseg
 
         private void button1_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < lbox_peksegek.Items.Count; i++)
+            {
+                Pekseg p = (Pekseg)lbox_peksegek.Items[i];
+                for (int j = 0; j < p.Termekek.Count; j++)
+                {
+                    if (p.Termekek[i].Equals(lbox_pekaruk.SelectedItem))
+                    {
+                        p.Termekek.Remove(p.Termekek[i]);
+                    }
+                }
+            }
             lbox_pekaruk.Items.RemoveAt(lbox_pekaruk.SelectedIndex);
+
             tbox_pekarunev.Text = "";
             tbox_ar.Text = "";
             chbox_laktoz.Checked = false;
             btn_del.Visible = false;
+            
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
@@ -74,10 +87,14 @@ namespace pekseg
         {
             lbox_pekaruja.Items.Clear();
             Pekseg pekseg = (Pekseg)lbox_peksegek.SelectedItem;
-            for (int i = 0; i < pekseg.Termekek.Count; i++)
+            if (pekseg != null)
             {
-                lbox_pekaruja.Items.Add(pekseg.Termekek[i]);
+                for (int i = 0; i < pekseg.Termekek.Count; i++)
+                {
+                    lbox_pekaruja.Items.Add(pekseg.Termekek[i]);
+                }
             }
+           
 
         }
 
@@ -127,7 +144,8 @@ namespace pekseg
                 string dragabb = string.Format("{0} ({1}Ft / db)", legdragabb.Nev, legdragabb.Ar);
                 stat_legdragabb.Text = dragabb;
 
-                int laktozmentes = 0;
+                double laktozmentes = 0;
+                double db = pek.Termekek.Count;
                 for (int i = 0; i < pek.Termekek.Count; i++)
                 {
                     if (pek.Termekek[i].Laktozmentes == true)
@@ -135,7 +153,8 @@ namespace pekseg
                         laktozmentes++;
                     }
                 }
-                stat_laktozmentes.Value = laktozmentes;
+                String laktozmentesszoveg = string.Format("{0} db laktozmentes, {1}%", laktozmentes, (laktozmentes / db) * 100);
+                stat_laktozmentes.Text = laktozmentesszoveg;
             }
             else
             {
@@ -143,7 +162,7 @@ namespace pekseg
                 stat_atlagar.Text = " ";
                 stat_legolcsobb.Text = " ";
                 stat_legdragabb.Text = " ";
-                stat_laktozmentes.Value = 0;
+                stat_laktozmentes.Text = "";
                 
             }
           
